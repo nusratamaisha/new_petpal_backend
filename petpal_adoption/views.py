@@ -42,7 +42,7 @@ class AdopterViewSet(viewsets.ModelViewSet):
 class AdoptionApplicationViewSet(viewsets.ModelViewSet):
     queryset = AdoptionApplication.objects.all()
     serializer_class = AdoptionApplicationSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    #permission_classes = [permissions.IsAuthenticated]
 
 # --- Veterinarian Views ---
 

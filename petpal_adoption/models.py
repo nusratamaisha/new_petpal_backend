@@ -51,14 +51,19 @@ class Adopter(models.Model):
 
 
 class AdoptionApplication(models.Model):
-    adopter = models.ForeignKey(Adopter, on_delete=models.CASCADE)
-    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
-    status = models.CharField(max_length=20, choices=[('Pending', 'Pending'), ('Approved', 'Approved'), ('Rejected', 'Rejected')], default='Pending')
-    reason = models.TextField(blank=True, null=True)
+    #adopter = models.ForeignKey(Adopter, on_delete=models.CASCADE)
+    pet = models.ForeignKey(Pet, on_delete=models.CASCADE, null=True)
+    #status = models.CharField(max_length=20, choices=[('Pending', 'Pending'), ('Approved', 'Approved'), ('Rejected', 'Rejected')], default='Pending')
+    name = models.TextField(blank=True, null=True, default="")
+    email = models.EmailField(blank=True, null=True, default="")
+    address = models.TextField(blank=True, null=True, default="")
+    experience = models.TextField(blank=True, null=True, default="")
+    homeType = models.TextField(blank=True, null=True, default="")
+    reason = models.TextField(blank=True, null=True, default="")
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.adopter.user.username} - {self.pet.name}"
+        return f"{self.name} - {self.pet}"
 
 
 class Veterinarian(models.Model):

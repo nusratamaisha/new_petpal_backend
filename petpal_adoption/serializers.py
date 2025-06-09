@@ -51,12 +51,12 @@ class AdopterSerializer(serializers.ModelSerializer):
 
 
 class AdoptionApplicationSerializer(serializers.ModelSerializer):
-    adopter = AdopterSerializer(read_only=True)
-    pet = PetSerializer(read_only=True)
+    ##adopter = AdopterSerializer(read_only=True)
+    #pet = PetSerializer()
 
     class Meta:
         model = AdoptionApplication
-        fields = ['id', 'adopter', 'pet', 'status', 'reason', 'created_at']
+        fields = '__all__'
 
 
 class VeterinarianSerializer(serializers.ModelSerializer):
